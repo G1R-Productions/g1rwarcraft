@@ -222,13 +222,13 @@ public class grwarcraft {
 		
 		//Armor
 		
-		armorHelmet1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 0);
+		armorHelmet1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 0).setUnlocalizedName("Helmet1");
 		GameRegistry.registerItem(armorHelmet1, "Helmet1");
-		armorChest1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 1);
+		armorChest1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 1).setUnlocalizedName("Chest1");
 		GameRegistry.registerItem(armorChest1, "Chest1");
-		armorLegs1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 2);
+		armorLegs1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 2).setUnlocalizedName("Legs1");
 		GameRegistry.registerItem(armorLegs1, "Legs1");
-		armorBoots1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 3);
+		armorBoots1 = new CustomArmor(ArmorMaterial.DIAMOND, 4, 3).setUnlocalizedName("Boots1");
 		GameRegistry.registerItem(armorBoots1, "Boots1");
 		
 		

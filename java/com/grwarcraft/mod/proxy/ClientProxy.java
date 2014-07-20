@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.grwarcraft.mod.grwarcraft;
+import com.grwarcraft.mod.model.Armor1;
 import com.grwarcraft.mod.renderer.ItemRenderOre1;
 import com.grwarcraft.mod.renderer.ItemRenderOre2;
 import com.grwarcraft.mod.renderer.ItemRenderOre3;
@@ -23,7 +24,26 @@ public class ClientProxy extends CommonProxy {
 	
 	public ModelBiped getArmorModel(int armor1){ return null; 
 	
-	}
+	private static final Armor1 armorChest1 = new Armor1(1.0f);
+	private static final Armor1 armorLegs1 = new Armor1(0.5f);
+	
+	 
+	ModelBiped Armor1(int id){
+	 switch (id) {
+	 case 0:
+	 return armorChest1;
+	 case 1:
+	 return armorLegs1;
+	 default:
+	 break;
+	 
+	 }
+	
+	 return armorChest1; //default, if whenever you should have passed on a wrong id
+
+	 }
+
+	 	}
 	
 	public void registerRenderThings() {
 		//Ore1

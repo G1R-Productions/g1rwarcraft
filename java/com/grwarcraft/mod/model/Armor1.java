@@ -170,6 +170,31 @@ public class Armor1 extends ModelBiped
       leftboot1.setTextureSize(64, 64);
       leftboot1.mirror = true;
       setRotation(leftboot1, 0F, 0F, 0F);
+      
+      this.bipedHead.addChild(helmet1);
+      this.bipedHead.addChild(helmet2);
+      this.bipedHead.addChild(helmet3);
+      this.bipedHead.addChild(helmet4);
+      this.bipedHead.addChild(helmet5);
+      this.bipedHead.addChild(helmet6);
+      this.bipedHead.addChild(helmet7);
+      this.bipedHead.addChild(ribbon1);
+      this.bipedHead.addChild(ribbon2);
+      
+      this.bipedBody.addChild(body1);
+      this.bipedHead.addChild(body2);
+      
+      this.bipedRightArm.addChild(rightarm1);
+      
+      this.bipedLeftArm.addChild(leftarm1);
+      
+      this.bipedRightLeg.addChild(rightleg1);
+      this.bipedRightLeg.addChild(rightleg2);
+      this.bipedRightLeg.addChild(rightboot1);
+      
+      this.bipedLeftLeg.addChild(leftleg1);
+      this.bipedLeftLeg.addChild(leftleg2);
+      this.bipedLeftLeg.addChild(leftboot1);
   }
   
   public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5)
