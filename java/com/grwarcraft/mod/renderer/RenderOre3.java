@@ -9,12 +9,12 @@ import net.minecraft.util.ResourceLocation;
 import com.grwarcraft.mod.grwarcraft;
 import com.grwarcraft.mod.model.ModelOre1;
 
-public class RenderOre2 extends TileEntitySpecialRenderer{
+public class RenderOre3 extends TileEntitySpecialRenderer{
 
-	private static final ResourceLocation texture1 = new ResourceLocation(grwarcraft.modid + ":" + "textures/model/Ore2.png");
+	private static final ResourceLocation texture1 = new ResourceLocation(grwarcraft.modid + ":" + "textures/model/Ore3.png");
 	
-	private ModelOre1 model2; {
-		this.model2 = new ModelOre1();
+	private ModelOre1 model3; {
+		this.model3 = new ModelOre1();
 		
 	}
 	
@@ -28,7 +28,7 @@ public class RenderOre2 extends TileEntitySpecialRenderer{
 			this.bindTexture(texture1);
 			
 			GL11.glPushMatrix();
-				this.model2.renderModel(0.0625f);
+				this.model3.renderModel(0.0625f);
 			GL11.glPopMatrix();
 		GL11.glPopMatrix();
 		

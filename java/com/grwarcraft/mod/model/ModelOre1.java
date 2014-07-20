@@ -3,7 +3,6 @@ package com.grwarcraft.mod.model;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 
-import com.sun.xml.internal.stream.Entity;
 
 public class ModelOre1 extends ModelBase
 {
