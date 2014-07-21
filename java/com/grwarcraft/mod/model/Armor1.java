@@ -202,30 +202,6 @@ public class Armor1 extends ModelBiped
   super.render(entity, f, f1, f2, f3, f4, f5);
   setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 
-    helmet1.render(f5);
-    helmet2.render(f5);
-    helmet3.render(f5);
-    helmet4.render(f5);
-    helmet5.render(f5);
-    helmet6.render(f5);
-    helmet7.render(f5);
-    ribbon1.render(f5);
-    ribbon2.render(f5);
-
-    body1.render(f5);
-    body2.render(f5);
-
-    rightarm1.render(f5);
-
-    leftarm1.render(f5);
-
-    rightleg1.render(f5);
-    rightleg2.render(f5);
-    rightboot1.render(f5);
-
-    leftleg1.render(f5);
-    leftleg2.render(f5);
-    leftboot1.render(f5);
   }
   
   private void setRotation(ModelRenderer model, float x, float y, float z)
