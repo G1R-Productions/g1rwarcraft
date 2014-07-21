@@ -23,10 +23,13 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
 	
-	private static final CustomArmor Chest1 = new CustomArmor(1.0f); 
-	private static final CustomArmor Legs1 = new CustomArmor(0.5f); 
+	private static final Armor1 Chest1 = new Armor1(1.0f); 
+	private static final Armor1 Legs1 = new Armor1(0.5f);
+	private static final Armor1 Helmet1 = new Armor1(0.5f);
+	private static final Armor1 Boots1 = new Armor1(0.5f); 
+	
 	@Override 
-	public static ModelBiped getArmorModel(int id){
+	public ModelBiped getArmorModel(int id){
 	switch (id) { case 0: return Chest1; 
 	case 1: return Legs1; default: break;
 	} 

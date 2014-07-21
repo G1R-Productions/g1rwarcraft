@@ -7,6 +7,7 @@ import com.grwarcraft.mod.blocks.Ore2;
 import com.grwarcraft.mod.blocks.Ore3;
 import com.grwarcraft.mod.items.GRItems;
 import com.grwarcraft.mod.items.testSword;
+import com.grwarcraft.mod.proxy.ClientProxy;
 import com.grwarcraft.mod.proxy.CommonProxy;
 
 import net.minecraft.block.Block;
@@ -92,7 +93,7 @@ public class grwarcraft {
 	
 	
 	@SidedProxy(clientSide = "com.grwarcraft.mod.proxy.ClientProxy", serverSide = "com.grwarcraft.mod.proxy.CommonProxy")
-	public static CommonProxy grwarcraftProxy;
+	public static CommonProxy grwarcraftProxy; 
 	
 	
 	

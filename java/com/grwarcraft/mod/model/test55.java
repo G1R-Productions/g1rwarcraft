@@ -11,6 +11,7 @@ public class Armor1 extends ModelBiped
   //fields
     ModelRenderer head;
     ModelRenderer body;
+    ModelRenderer rightarm;
     ModelRenderer leftarm;
     ModelRenderer rightleg;
     ModelRenderer leftleg;
@@ -21,7 +22,7 @@ public class Armor1 extends ModelBiped
     textureHeight = 64;
     
       head = new ModelRenderer(this, 0, 32);
-      head.addBox(-4F, -16F, -4F, 8, 16, 8);
+      head.addBox(-4F, -12F, -4F, 8, 12, 8);
       head.setRotationPoint(0F, 0F, 0F);
       head.setTextureSize(64, 64);
       head.mirror = true;
@@ -32,6 +33,12 @@ public class Armor1 extends ModelBiped
       body.setTextureSize(64, 64);
       body.mirror = true;
       setRotation(body, 0F, 0F, 0F);
+      rightarm = new ModelRenderer(this, 40, 16);
+      rightarm.addBox(-3F, -2F, -2F, 4, 12, 4);
+      rightarm.setRotationPoint(-5F, 2F, 0F);
+      rightarm.setTextureSize(64, 64);
+      rightarm.mirror = true;
+      setRotation(rightarm, 0F, 0F, 0F);
       leftarm = new ModelRenderer(this, 40, 16);
       leftarm.addBox(-1F, -2F, -2F, 4, 12, 4);
       leftarm.setRotationPoint(5F, 2F, 0F);
@@ -54,6 +61,8 @@ public class Armor1 extends ModelBiped
       this.bipedHead.addChild(head);
       
       this.bipedBody.addChild(body);
+      
+      this.bipedRightArm.addChild(rightarm);
       
       this.bipedLeftArm.addChild(leftarm);
       
