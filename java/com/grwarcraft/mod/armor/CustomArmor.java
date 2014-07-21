@@ -1,4 +1,4 @@
-
+package com.grwarcraft.mod.armor;
 
 import net.java.games.input.Keyboard;
 import net.minecraft.client.model.ModelBiped;
@@ -75,7 +75,7 @@ armorModel.bipedLeftArm.showModel = armorSlot == 1;
 armorModel.isSneak = entityLiving.isSneaking();
 armorModel.isRiding = entityLiving.isRiding();
 armorModel.isChild = entityLiving.isChild();
-armorModel.heldItemRight = entityLiving.getCurrentArmor(0) != null ? 1 :0;
+armorModel.heldItemRight = entityLiving.getEquipmentInSlot(0)  != null ? 1 :0;
 if(entityLiving instanceof EntityPlayer){
 armorModel.aimedBow =((EntityPlayer)entityLiving).getItemInUseDuration() > 2;
 }
