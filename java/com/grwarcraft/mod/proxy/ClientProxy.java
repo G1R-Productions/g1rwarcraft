@@ -5,6 +5,7 @@ import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.MinecraftForgeClient;
 
+import com.grwarcraft.mod.armor.CustomArmor;
 import com.grwarcraft.mod.grwarcraft;
 import com.grwarcraft.mod.model.Armor1;
 import com.grwarcraft.mod.renderer.ItemRenderOre1;
@@ -22,28 +23,15 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 
 public class ClientProxy extends CommonProxy {
 	
-	public ModelBiped getArmorModel(int armor1){ return null; 
-	
-	private static final Armor1 armorChest1 = new Armor1(1.0f);
-	private static final Armor1 armorLegs1 = new Armor1(0.5f);
-	
-	 
-	ModelBiped Armor1(int id){
-	 switch (id) {
-	 case 0:
-	 return armorChest1;
-	 case 1:
-	 return armorLegs1;
-	 default:
-	 break;
-	 
-	 }
-	
-	 return armorChest1; //default, if whenever you should have passed on a wrong id
-
-	 }
-
-	 	}
+	private static final CustomArmor Chest1 = new CustomArmor(1.0f); 
+	private static final CustomArmor Legs1 = new CustomArmor(0.5f); 
+	@Override 
+	public static ModelBiped getArmorModel(int id){
+	switch (id) { case 0: return Chest1; 
+	case 1: return Legs1; default: break;
+	} 
+	return Chest1;
+	}
 	
 	public void registerRenderThings() {
 		//Ore1
