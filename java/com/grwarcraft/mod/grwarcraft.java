@@ -1,6 +1,5 @@
 package com.grwarcraft.mod;
 
-import com.grwarcraft.mod.armor.CustomArmor;
 import com.grwarcraft.mod.blocks.CopperOre;
 import com.grwarcraft.mod.blocks.Ore1;
 import com.grwarcraft.mod.blocks.Ore2;
@@ -12,6 +11,7 @@ import com.grwarcraft.mod.proxy.CommonProxy;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
@@ -32,11 +32,13 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class grwarcraft {
 	
 	public static final String modid = "grwarcraft";
-	public static final String version = "1.0";
+	public static final String version = "1.5.0";
 	
 	public static CreativeTabs g1rwarcraft;
 	
 	public static ToolMaterial testMaterial = EnumHelper.addToolMaterial("testMaterial", 0, 750, 3.0F, 1.0F, 10);
+	//public static ArmorMaterial ArmorMaterial = EnumHelper.addArmorMaterial("ArmorMaterial", 1000, 1.0, 10);
+	
 	
 	
 	public static Item itemCopperIngot;
@@ -49,6 +51,10 @@ public class grwarcraft {
 	public static Item itemclothbolt3;
 	public static Item itemHide1;
 	public static Item itemHide2;
+	public static Item itemHide3;
+	public static Item itemHide4;
+	public static Item itemHide5;
+	public static Item itemHide6;
 	public static Item itemspoolofthread1;
 	public static Item itemspoolofthread2;
 	public static Item itemFang1;
@@ -73,9 +79,14 @@ public class grwarcraft {
 	public static Item itemironarrowhead1;
 	public static Item itembonearrowhead1;
 	public static Item itemscale1;
+	public static Item itemcrystal1;
+	public static Item itemcrystal2;
+	public static Item itemcrystal3;
+	
 	public static Item foodmeat1;
 	public static Item foodmeat2;
 	public static Item foodmeat3;
+
 	
 	public static Item itemtestSword;
 	
@@ -83,6 +94,8 @@ public class grwarcraft {
 	public static Item armorChest1;
 	public static Item armorLegs1;
 	public static Item armorBoots1;
+	
+	public static Item item3dtool;
 	
 	
 	
@@ -94,6 +107,8 @@ public class grwarcraft {
 	
 	@SidedProxy(clientSide = "com.grwarcraft.mod.proxy.ClientProxy", serverSide = "com.grwarcraft.mod.proxy.CommonProxy")
 	public static CommonProxy grwarcraftProxy; 
+	
+
 	
 	
 	
@@ -136,6 +151,18 @@ public class grwarcraft {
 		
 		itemHide2 = new GRItems().setUnlocalizedName("Hide2");
 		GameRegistry.registerItem(itemHide2, "Hide2");
+		
+		itemHide3 = new GRItems().setUnlocalizedName("Hide3");
+		GameRegistry.registerItem(itemHide3, "Hide3");
+		
+		itemHide4 = new GRItems().setUnlocalizedName("Hide4");
+		GameRegistry.registerItem(itemHide4, "Hide4");
+		
+		itemHide5 = new GRItems().setUnlocalizedName("Hide5");
+		GameRegistry.registerItem(itemHide5, "Hide5");
+		
+		itemHide6 = new GRItems().setUnlocalizedName("Hide6");
+		GameRegistry.registerItem(itemHide6, "Hide6");
 		
 		itemspoolofthread1 = new GRItems().setUnlocalizedName("spoolofthread1");
 		GameRegistry.registerItem(itemspoolofthread1, "spoolofthread1");
@@ -205,6 +232,19 @@ public class grwarcraft {
 
 		itemscale1 = new GRItems().setUnlocalizedName("scale1");
 		GameRegistry.registerItem(itemscale1, "scale1");
+		
+		itemcrystal1 = new GRItems().setUnlocalizedName("crystal1");
+		GameRegistry.registerItem(itemcrystal1, "crystal1");
+		
+		itemcrystal2 = new GRItems().setUnlocalizedName("crystal2");
+		GameRegistry.registerItem(itemcrystal2, "crystal2");
+		
+		itemcrystal3 = new GRItems().setUnlocalizedName("crystal3");
+		GameRegistry.registerItem(itemcrystal3, "crystal3");
+		
+		item3dtool = new GRItems().setUnlocalizedName("3dtool");
+		GameRegistry.registerItem(item3dtool, "3dtool");
+
 
 		foodmeat1 = new ItemFood(6, 0.6F, true).setUnlocalizedName("rawfish1").setTextureName("grwarcraft:rawfish1").setCreativeTab(grwarcraft.g1rwarcraft);
         GameRegistry.registerItem(foodmeat1, "rawfish1");
@@ -223,15 +263,12 @@ public class grwarcraft {
 		
 		//Armor
 		
-		armorHelmet1 = new CustomArmor(0, ArmorMaterial.DIAMOND, 4, 0).setUnlocalizedName("Helmet1");
-		GameRegistry.registerItem(armorHelmet1, "Helmet1");
-		armorChest1 = new CustomArmor(0, ArmorMaterial.DIAMOND, 4, 1).setUnlocalizedName("Chest1");
-		GameRegistry.registerItem(armorChest1, "Chest1");
-		armorLegs1 = new CustomArmor(0, ArmorMaterial.DIAMOND, 4, 2).setUnlocalizedName("Legs1");
-		GameRegistry.registerItem(armorLegs1, "Legs1");
-		armorBoots1 = new CustomArmor(0, ArmorMaterial.DIAMOND, 4, 3).setUnlocalizedName("Boots1");
-		GameRegistry.registerItem(armorBoots1, "Boots1");
-		
+		//helmet = new CustomArmor(8469, EnumArmorMaterial.IRON, 4, 0).setUnlocalizedName("a.iron_helmet");
+		//chest = new CustomArmor(8470, EnumArmorMaterial.IRON, 4, 1).setUnlocalizedName("a.iron_chestplate");
+		//legs = new CustomArmor(8471, EnumArmorMaterial.IRON, 4, 2).setUnlocalizedName("a.iron_leggings"); 
+		//boots = new CustomArmor(8472, EnumArmorMaterial.IRON, 4, 3).setUnlocalizedName("a.iron_boots"); 
+		//LanguageRegistry.addName(helmet, "3D Helmet"); LanguageRegistry.addName(chest, "3D Chest"); 
+		//LanguageRegistry.addName(legs, "3D Legs"); LanguageRegistry.addName(boots, "3D Boots"); 
 		
 		
 		//Blocks
@@ -250,11 +287,14 @@ public class grwarcraft {
 		
 		//Renderers
 		grwarcraftProxy.registerRenderThings();
+		grwarcraftProxy.registerItemRenderers();
+
 		
 	}
 	
 	@EventHandler
 	public void Init(FMLInitializationEvent event){
+		
 		
 	}
 	

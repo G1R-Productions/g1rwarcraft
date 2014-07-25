@@ -1,4 +1,12 @@
-itemGroup.grwarcraft=G1R Warcraft
-
-tile.CopperOre.name=Copper Ore
-item.CopperIngot.name=Copper Ingot
+itemGroup.grwarcraft=G1R 
+item.rawfish1.name=Raw Mackerel
+item.cookedfish1.name=Cooked Mackerel
+item.burntfish1.name=Burnt Mackerel
+item.ironarrowhead1.name=Iron Arrowhead
+item.bonearrowhead1.name=Bone Arrowhead
+item.ironchainlink1.name=Iron Chainlink
+item.ironchainsheet1.name=Iron Chainsheet
+item.gravel1.name=Bucket of Gravel
+item.sand1.name=Bucket of Sand
+item.hardenedwood1.name=Hardened Oak Wood
+item.rawore3.name=Raw Iron Ore

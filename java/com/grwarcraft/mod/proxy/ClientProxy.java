@@ -3,11 +3,11 @@ package com.grwarcraft.mod.proxy;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
-import com.grwarcraft.mod.armor.CustomArmor;
 import com.grwarcraft.mod.grwarcraft;
-import com.grwarcraft.mod.model.Armor1;
+import com.grwarcraft.mod.renderer.ItemRender3DTool;
 import com.grwarcraft.mod.renderer.ItemRenderOre1;
 import com.grwarcraft.mod.renderer.ItemRenderOre2;
 import com.grwarcraft.mod.renderer.ItemRenderOre3;
@@ -17,24 +17,20 @@ import com.grwarcraft.mod.renderer.RenderOre3;
 import com.grwarcraft.mod.tileentity.TileEntityOre1;
 import com.grwarcraft.mod.tileentity.TileEntityOre2;
 import com.grwarcraft.mod.tileentity.TileEntityOre3;
+import com.grwarcraft.mod.tileentity.TileEntitysword1;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 
 
 public class ClientProxy extends CommonProxy {
 	
-	private static final Armor1 Chest1 = new Armor1(1.0f); 
-	private static final Armor1 Legs1 = new Armor1(0.5f);
-	private static final Armor1 Helmet1 = new Armor1(0.5f);
-	private static final Armor1 Boots1 = new Armor1(0.5f); 
-	
-	@Override 
-	public ModelBiped getArmorModel(int id){
-	switch (id) { case 0: return Chest1; 
-	case 1: return Legs1; default: break;
-	} 
-	return Chest1;
+	public void registerItemRenderers(){
+		
+		MinecraftForgeClient.registerItemRenderer(grwarcraft.item3dtool, new ItemRender3DTool());
+
 	}
+	
+	
 	
 	public void registerRenderThings() {
 		//Ore1
@@ -52,11 +48,16 @@ public class ClientProxy extends CommonProxy {
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityOre3.class, render2);
 		MinecraftForgeClient.registerItemRenderer(Item.getItemFromBlock(grwarcraft.Ore3), new ItemRenderOre3(render2, new TileEntityOre3()));
 		
+		//Sword1
+		//MinecraftForgeClient.registerItemRenderer(grwarcraft.itemtestSword, new ItemRenderSword1());
+		
 		
 	}
 	
 	public void registerTileEntitySpecialRenderer(){
 		
 	}
+	
+
 
 }

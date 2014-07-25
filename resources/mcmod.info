@@ -1,14 +1,14 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Example placeholder mod.",
-  "version": "1.4.0",
-  "mcversion": "1.7.0",
-  "url": "",
+  "modid": "grwarcraft",
+  "name": "G1R Warcraft",
+  "description": "Mod that adds various items for G1R Warcraft mmorpg server.",
+  "version": "1.6.0",
+  "mcversion": "1.7.2",
+  "url": "http://g1rwarcraft.enjin.com/home",
   "updateUrl": "",
-  "authorList": ["ExampleDude"],
-  "credits": "The Forge and FML guys, for making this example",
+  "authorList": ["Ghaz_ranka"],
+  "credits": "Neale Gaming",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
