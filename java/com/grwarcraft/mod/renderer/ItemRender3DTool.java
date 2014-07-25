@@ -14,9 +14,6 @@ import org.lwjgl.opengl.GL11;
 
 import com.grwarcraft.mod.model.Modelsword1;
 
-import blfngl.fallout.model.ModelBozar;
-import cpw.mods.fml.client.TextureHelper;
-
 public class ItemRender3DTool implements IItemRenderer
 {
         protected Modelsword1 model = new Modelsword1();
@@ -44,7 +41,7 @@ public class ItemRender3DTool implements IItemRenderer
                 {
                         case 1:
                         GL11.glPushMatrix();
-                        Minecraft.getMinecraft().renderEngine.bindTexture("/tutorial/textures/New3DItem.png");
+                        Minecraft.getMinecraft().renderEngine.bindTexture("/grwarcrfat/textures/3DItem.png");
                         boolean var4 = false;
 
                         if (var3[1] != null && var3[1] instanceof EntityPlayer)
