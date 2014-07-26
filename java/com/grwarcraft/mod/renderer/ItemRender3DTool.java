@@ -1,81 +1,108 @@
 package com.grwarcraft.mod.renderer;
 
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.inventory.GuiContainerCreative;
-import net.minecraft.client.gui.inventory.GuiInventory;
-import net.minecraft.client.renderer.RenderHelper;
-import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.IItemRenderer;
+import net.minecraftforge.client.IItemRenderer.ItemRenderType;
+import net.minecraftforge.client.IItemRenderer.ItemRendererHelper;
 
 import org.lwjgl.opengl.GL11;
 
 import com.grwarcraft.mod.model.Modelsword1;
 
-public class ItemRender3DTool implements IItemRenderer
-{
-        protected Modelsword1 model = new Modelsword1();
+public class ItemRender3DTool implements IItemRenderer {
+    //you'll need an instance of your model. you could also add it to the constructor as an argument to be able to reuse this class for
+    //every model you add
+    Modelsword1 swordmodel;
 
-        public boolean handleRenderType(ItemStack var1, ItemRenderType var2)
-        {
-                switch (RenderHelper.newRender[var2.ordinal()])
-                {
-                        case 1:
-                        return true;
+    //constructor
+    public ItemRender3DTool() {
+        swordmodel = new Modelsword1();
+    }
 
-                        default:
-                        return false;
-                }
+    
+
+    @Override
+    public void renderItem(ItemRenderType type, ItemStack item, Object... data) {
+    	
+    	
+    	
+        switch (type) {
+
+        case EQUIPPED: // render in third person
+            GL11.glPushMatrix(); //start gl rendering for this section
+            Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(
+                    "grwarcraft:/sword1.png"));
+            //var4 = true;
+           //var5 = 0.7F;
+            GL11.glTranslatef(0.4F, 0.0F, -0.1F);
+            GL11.glScalef(2.0F, 2.0F, 2.0F);
+            GL11.glRotatef(100.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+            GL11.glRotatef(-10.0F, 0.0F, 0.0F, 1.0F);
+//the entity argument can/could be passed to as null.
+            swordmodel.render((Entity) data[1], 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+                    0.0625F);
+            GL11.glPopMatrix(); //Stop gl rendering for this section
+            break;
+
+        case EQUIPPED_FIRST_PERSON:
+
+//rince and repeat the rendering. adjust axis' and translation as needed
+            GL11.glPushMatrix();
+            Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(
+                    "grwarcraft:/sword1.png"));
+            GL11.glTranslatef(0.4F, 0.0F, -0.5F);
+            GL11.glScalef(2.0F, 2.0F, 2.0F);
+            GL11.glRotatef(100.0F, 1.0F, 0.0F, 0.0F);
+            GL11.glRotatef(10.0F, 0.0F, 1.0F, 0.0F);
+            GL11.glRotatef(90.0F, 0.0F, 0.0F, 1.0F);
+            swordmodel.render((Entity) data[1], 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+                    0.0625F);
+            GL11.glPopMatrix();
+            break;
+
+        case ENTITY:
+            GL11.glPushMatrix();
+
+            Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation(
+                    "grwarcraft:/sword1.png"));
+            GL11.glScalef(2.0F, 2.0F, 2.0F);
+            GL11.glRotatef(90F, 1.0f, 0.0f, 0.0f);
+            GL11.glRotatef(0F, 0.0f, 1.0f, 0.0f);
+            GL11.glRotatef(45F, 0.0f, 0.0f, 1.0f);
+            GL11.glTranslatef(-0.2F, 1F, 0F);
+            swordmodel.render((Entity) data[1], 0.0F, 0.0F, 0.0F, 0.0F, 0.0F,
+                    0.0625F);
+            GL11.glPopMatrix();
+            break;
+
+
+        default:
+            break;
         }
+        
+        
+        
+    }
+    
+    
+@Override
+    public boolean handleRenderType(ItemStack item, ItemRenderType type) {
+        return true;
+    }
 
-        public boolean shouldUseRenderHelper(ItemRenderType var1, ItemStack var2, ItemRendererHelper var3)
-        {
-                return false;
-        }
+public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,
+            ItemRendererHelper helper) {
 
-        public void renderItem(ItemRenderType var1, ItemStack var2, Object ... var3)
-        {
-                switch (RenderHelper.newRender[var1.ordinal()])
-                {
-                        case 1:
-                        GL11.glPushMatrix();
-                        Minecraft.getMinecraft().renderEngine.bindTexture("/grwarcrfat/textures/3DItem.png");
-                        boolean var4 = false;
+        return false;
 
-                        if (var3[1] != null && var3[1] instanceof EntityPlayer)
-                        {
-                                float var5;
+    }
 
-                        if ((EntityPlayer)var3[1] == Minecraft.getMinecraft().renderViewEntity && Minecraft.getMinecraft().gameSettings.thirdPersonView == 0 && (!(Minecraft.getMinecraft().currentScreen instanceof GuiInventory) && !(Minecraft.getMinecraft().currentScreen instanceof GuiContainerCreative) || RenderManager.instance.playerViewY != 180.0F))
-                        {
-                                var4 = true;
-                               var5 = 0.7F;
-                               GL11.glTranslatef(1.0F, 0.7F, 0.6F);
-                               GL11.glScalef(var5, var5, var5);
-                               GL11.glRotatef(205.0F, 0.0F, 0.0F, 1.0F);
-                               GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
-                               GL11.glRotatef(-5.0F, 1.0F, 0.0F, 0.0F);
-                        }
-                        else
-                        {
-                                var5 = 0.3F;
-                                GL11.glTranslatef(0.5F, 0.5F, 0.1F);
-                                GL11.glScalef(var5, var5, var5);
-                                GL11.glRotatef(190.0F, 0.0F, 0.0F, 1.0F);
-                                GL11.glRotatef(100.0F, 0.0F, 1.0F, 0.0F);
-                                GL11.glRotatef(-5.0F, 1.0F, 0.0F, 0.0F);
-                        }
-                }
-
-                this.model.render((Entity)var3[1], 0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 0.0625F);
-                GL11.glPopMatrix();
-
-                default:
-                }
-        }
 }
 
 
 
+//Minecraft.getMinecraft().
