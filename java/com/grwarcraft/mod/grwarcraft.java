@@ -108,7 +108,7 @@ public class grwarcraft {
 	
 	@SidedProxy(clientSide = "com.grwarcraft.mod.proxy.ClientProxy", serverSide = "com.grwarcraft.mod.proxy.CommonProxy")
 	public static CommonProxy grwarcraftProxy;
-	public static CommonProxy proxy;
+
 
 	
 

@@ -42,9 +42,9 @@ ItemStack itemStack, int armorSlot) {
    if(itemStack.getItem() instanceof Armor1) {
     int type = ((ItemArmor)itemStack.getItem()).armorType;
     if(type == 1 || type == 3 || type == 0){
-    armorModel = grwarcraft.proxy.getArmorModel(0);
+    armorModel = grwarcraft.grwarcraftProxy.getArmorModel(0);
     }else{
-    armorModel = grwarcraft.proxy.getArmorModel(1);
+    armorModel = grwarcraft.grwarcraftProxy.getArmorModel(1);
     }
    }
    if(armorModel != null){
