@@ -7,6 +7,7 @@ import net.minecraftforge.client.IItemRenderer;
 import net.minecraftforge.client.MinecraftForgeClient;
 
 import com.grwarcraft.mod.grwarcraft;
+import com.grwarcraft.mod.model.ModelArmor1;
 import com.grwarcraft.mod.renderer.ItemRender3DTool;
 import com.grwarcraft.mod.renderer.ItemRenderOre1;
 import com.grwarcraft.mod.renderer.ItemRenderOre2;
@@ -23,6 +24,23 @@ import cpw.mods.fml.client.registry.ClientRegistry;
 
 
 public class ClientProxy extends CommonProxy {
+	
+	private static final ModelArmor1 Chest1 = new ModelArmor1(1.0f);
+	private static final ModelArmor1 Legs1 = new ModelArmor1(0.5f); 
+
+	@Override
+	    public ModelBiped getArmorModel(int id){
+	        switch (id) {
+	        case 0:
+	            return Chest1;
+	        case 1:
+	            return Legs1;
+	        default:
+	            break;
+	        }
+	        return Chest1; //default, if whenever you should have passed on a wrong id
+	    }
+
 	
 	public void registerItemRenderers(){
 		

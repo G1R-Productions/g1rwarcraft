@@ -78,20 +78,22 @@ public class ItemRender3DTool implements IItemRenderer {
                     0.0625F);
             GL11.glPopMatrix();
             break;
+            
 
+        	default:
+        	break;
+        	}
 
-        default:
-            break;
         }
         
         
         
-    }
+  
     
     
 @Override
     public boolean handleRenderType(ItemStack item, ItemRenderType type) {
-        return true;
+	return (type == ItemRenderType.ENTITY || type == ItemRenderType.EQUIPPED || type == ItemRenderType.EQUIPPED_FIRST_PERSON);
     }
 
 public boolean shouldUseRenderHelper(ItemRenderType type, ItemStack item,

@@ -1,5 +1,6 @@
 package com.grwarcraft.mod;
 
+import com.grwarcraft.mod.armor.Armor1;
 import com.grwarcraft.mod.blocks.CopperOre;
 import com.grwarcraft.mod.blocks.Ore1;
 import com.grwarcraft.mod.blocks.Ore2;
@@ -37,7 +38,7 @@ public class grwarcraft {
 	public static CreativeTabs g1rwarcraft;
 	
 	public static ToolMaterial testMaterial = EnumHelper.addToolMaterial("testMaterial", 0, 750, 3.0F, 1.0F, 10);
-	//public static ArmorMaterial ArmorMaterial = EnumHelper.addArmorMaterial("ArmorMaterial", 1000, 1.0, 10);
+	public static ArmorMaterial ArmorMaterial = EnumHelper.addArmorMaterial("ArmorMaterial", 100, new int [] {3, 8, 6, 3}, 10);
 	
 	
 	
@@ -107,6 +108,7 @@ public class grwarcraft {
 	
 	@SidedProxy(clientSide = "com.grwarcraft.mod.proxy.ClientProxy", serverSide = "com.grwarcraft.mod.proxy.CommonProxy")
 	public static CommonProxy grwarcraftProxy;
+	public static CommonProxy proxy;
 
 	
 
@@ -243,7 +245,7 @@ public class grwarcraft {
 		itemcrystal3 = new GRItems().setUnlocalizedName("crystal3");
 		GameRegistry.registerItem(itemcrystal3, "crystal3");
 		
-		item3dtool = new GRItems().setUnlocalizedName("3dtool");
+		item3dtool = new GRItems().setTextureName("grwarcraft:/sword1").setUnlocalizedName("3dtool");
 		GameRegistry.registerItem(item3dtool, "3dtool");
 
 
@@ -264,12 +266,14 @@ public class grwarcraft {
 		
 		//Armor
 		
-		//helmet = new CustomArmor(8469, EnumArmorMaterial.IRON, 4, 0).setUnlocalizedName("a.iron_helmet");
-		//chest = new CustomArmor(8470, EnumArmorMaterial.IRON, 4, 1).setUnlocalizedName("a.iron_chestplate");
-		//legs = new CustomArmor(8471, EnumArmorMaterial.IRON, 4, 2).setUnlocalizedName("a.iron_leggings"); 
-		//boots = new CustomArmor(8472, EnumArmorMaterial.IRON, 4, 3).setUnlocalizedName("a.iron_boots"); 
-		//LanguageRegistry.addName(helmet, "3D Helmet"); LanguageRegistry.addName(chest, "3D Chest"); 
-		//LanguageRegistry.addName(legs, "3D Legs"); LanguageRegistry.addName(boots, "3D Boots"); 
+		armorHelmet1 = new Armor1(8469, ArmorMaterial.IRON, 4, 0).setUnlocalizedName("Helmet1");
+		GameRegistry.registerItem(armorHelmet1, "Helmet1");
+		armorChest1 = new Armor1(8470, ArmorMaterial.IRON, 4, 1).setUnlocalizedName("Chest1");
+		GameRegistry.registerItem(armorChest1, "Chest1");
+		armorLegs1 = new Armor1(8471, ArmorMaterial.IRON, 4, 2).setUnlocalizedName("Legs1"); 
+		GameRegistry.registerItem(armorLegs1, "Legs1");
+		armorBoots1 = new Armor1(8472, ArmorMaterial.IRON, 4, 3).setUnlocalizedName("Boots1"); 
+		GameRegistry.registerItem(armorBoots1, "Boots1");
 		
 		
 		//Blocks
