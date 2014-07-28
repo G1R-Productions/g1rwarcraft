@@ -25,6 +25,8 @@ public void registerIcons(IIconRegister register) {
 public String getArmorTexture(ItemStack itemstack, Entity entity, int slot,
 String type) {
 switch(slot){
+  case 3:
+	  return "armor:test_3.png"; 
   case 2:
    return "armor:test_2.png";
 //2 should be the slot for legs
@@ -50,7 +52,7 @@ ItemStack itemStack, int armorSlot) {
    if(armorModel != null){
     armorModel.bipedHead.showModel = armorSlot == 0;
     armorModel.bipedHeadwear.showModel = armorSlot == 0;
-    armorModel.bipedBody.showModel = armorSlot == 1 || armorSlot == 2;
+    armorModel.bipedBody.showModel = armorSlot == 1;
     armorModel.bipedRightArm.showModel = armorSlot == 1;
     armorModel.bipedLeftArm.showModel = armorSlot == 1;
     armorModel.bipedRightLeg.showModel = armorSlot == 2 || armorSlot == 3;
